@@ -30,15 +30,19 @@ expectUserInput()
 DIR="$(dirname "$(readlink -f "$0")")"
 ABSOLUTE_CONFIG_PATH=$DIR/configs/
 
-# update package manager (UPM)
+################################
+# update package manager (UPM) 
+################################
 sudo apt update -y
 expectUserInput 'upgrade apt'
 if [ $userInput == 'y' ]; then
 	sudo apt -y upgrade
 fi
 
+################################
 # ZSH
 # Requires: UPM
+################################
 expectUserInput 'install zsh'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y zsh
@@ -47,17 +51,21 @@ if [ $userInput == 'y' ]; then
 	# copy config after installation of oh-my-zsh
 fi
 
+################################
 # TMUX
 # Requires: UPM
 # Requires: ZSH (opt)
+################################
 expectUserInput 'install tmux'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y tmux
 	ln -s $ABSOLUTE_CONFIG_PATH.tmux.conf ~/
 fi
 
+################################
 # VIM
 # Requires: UPM
+################################
 expectUserInput 'install vim (+plugins)'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y vim
@@ -68,20 +76,29 @@ if [ $userInput == 'y' ]; then
 
 fi
 
+################################
 # GIT
 # Requires: UPM
+################################
 expectUserInput 'Install git (and git-config)'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y git
 	ln -s $ABSOLUTE_CONFIG_PATH.gitconfig ~/
 fi
 
+################################
 # NPM
-# Requires UPM
+# Requires: UPM
+################################
 expectUserInput 'Install Node-Package-Manager (NPM) (required for git-plugin diff-so-fancy)'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y npm
 	
+    ################################
+    # diff-so-fancy
+    # Requires: NPM
+    # Requires: GIT
+    ################################
 	expectUserInput 'Install Git-plugin: diff-so-fancy'
 	if [ $userInput == 'y' ] || [ $userInput = 'Y' ]; then
 		sudo npm install -g diff-so-fancy
@@ -90,8 +107,10 @@ if [ $userInput == 'y' ]; then
 fi
 
 
+################################
 # Maven
 # Requires: UPM
+################################
 expectUserInput 'Install maven'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y maven
@@ -102,14 +121,19 @@ if [ $userInput == 'y' ]; then
 	fi
 fi
 
+################################
 # CURL
+# Requires: UPM
+################################
 expectUserInput 'Install curl (Required for docker and oh-my-zsh)'
 if [ $userInput == 'y' ]; then
 	sudo apt install curl
 	
+    ################################
 	# DOCKER
 	# Requires: UPM
 	# Requires: CURL
+    ################################
 	expectUserInput 'Install docker'
 	if [ $userInput == 'y' ]; then
 		# see install docker engine on docs.docker.com for more info
@@ -135,11 +159,13 @@ if [ $userInput == 'y' ]; then
 		sudo chmod +x /usr/local/bin/docker-compose
 	fi
 	
+    ################################
 	# OHMYZSH
 	# Requires: UPM
 	# Requires: GIT
 	# Requires: CURL
 	# Requires: ZSH
+    ################################
 	expectUserInput 'Install Oh-My-Zsh? (requires zsh)'
 	if [ $userInput == 'y' ]; then
 		sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -150,9 +176,11 @@ if [ $userInput == 'y' ]; then
 		rm -rf fonts
 	fi
 
+    ################################
 	# P10K
 	# Requires: GIT
 	# Requires: OHMYZSH
+    ################################
     read -p 'What should be the directory to oh-my-zsh (default: ~/.oh-my-zsh)' ZSH_CUSTOM
     if [ -z $ZSH_CUSTOM ]; then
         ZSH_CUSTOM=~/.oh-my-zsh
@@ -163,9 +191,11 @@ if [ $userInput == 'y' ]; then
 	    	sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 	fi
 	
+    ################################
     # ZSH-PLUGINS
 	# Requires: UPM
 	# Requires: ZSH
+    ################################
 	expectUserInput 'Install recommanded plugins (zsh-autosuggestions, colored-man-pages, thefuck, mvn, zsh-syntax-highlighting, zsh-z)'
 	if [ $userInput == 'y' ]; then
 		# autosuggestions
@@ -179,7 +209,9 @@ if [ $userInput == 'y' ]; then
     	sudo git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
     fi
 
+    ################################
     # RECOMMANDED-CONFIGS
+    ################################
 	expectUserInput 'Use recommanded configs'
 	if [ $userInput == 'y' ]; then
 		rm -rf ~/.zshrc
@@ -188,35 +220,45 @@ if [ $userInput == 'y' ]; then
 	fi
 fi
 
+################################
 # KONSOLE
 # Requires: UPM
+################################
 expectUserInput 'Install other terminal-program: Konsole (KDE)?'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y konsole
 fi
 
+################################
 # CIFS-UTILS
 # Requires: UPM
+################################
 expectUserInput 'Install network-mount util: cifs-utils'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y cifs-utils
 fi
 
+################################
 # JAVA-8 (AS OPEN-JDK)
 # Requires: UPM
+################################
 expectUserInput 'Install java open-jdk-8'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y openjdk-8-jdk
 fi
 
+################################
 # INSTALL COPY-PASTE
 # Requires: UPM
+################################
 expectUserInput 'Install XCLIP (only useful under linux)'
 if [ $userInput == 'y' ]; then
 	sudo apt install -y xclip
 fi
 
+################################
 # Backup-Dir (docker-databases)
+################################
 expectUserInput 'Install a backup-dir for dockerized databases (/backups/dbBackups/...)'
 if [ $userInput == 'y' ]; then
 	sudo mkdir /backups/
