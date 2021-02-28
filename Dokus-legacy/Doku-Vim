@@ -1,0 +1,19 @@
+# Installation
+Linux/Ubuntu: sudo apt install vim
+
+macOS: brew install vim
+
+# Config
+Pfad: ~/.vimrc
+Meine Config: Liegt hier im repo unter: Terminal Custom
+
+# installation Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall # Einfach warten bis das fenster weg geht (kann dauern)
+
+# installation YouCompleteMe
+Look at website - linux installation
+
+Plugins:
+- Vundle
+- https://github.com/ycm-core/YouCompleteMe

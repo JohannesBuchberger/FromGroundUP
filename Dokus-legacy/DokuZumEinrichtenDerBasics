@@ -1,0 +1,99 @@
+Terminal
+Meine Empfehlung ist Konsole.
+
+Ich hatte bisher keine Probleme mit Konsole. Während bei anderen Terminal-Programmen die UI unübersichtlich oder keine Unterstützung von Farben in tmux gegeben war.
+
+Installation: sudo apt install konsole
+
+Dazu benutze ich die zsh, mit oh-my-zsh Erweiterung.
+
+Für die Installation gibt es eine eigene Confluence Seite.
+
+How to zsh 
+
+How to vim 
+
+
+Edison
+https://askubuntu.com/questions/46183/how-to-map-a-network-drive
+
+Mein Alias: sudo mount -t cifs -o username=lro //fileshare/share/exentra_share ~/fileshare
+
+Abhängigkeit: sudo apt install cifs-utils
+
+Um im File-Browser Daten auf dem Edison zu ändern: sudo apt install nautilus-admin
+
+Dann einfach Nautilus/File-Browser schließen.
+
+
+Java
+Installation: sudo apt install openjdk-8-jdk
+
+
+Maven
+Installation: sudo apt install maven
+
+Damit Maven jedoch mit den exentra Projekten funktioniert, müsst ihr auch noch die .m2 Config mit Verlinkung auf den nexus hinzufügen.
+
+Pfad der Config: ~/.m2/settings.xml
+
+settings.xml
+1 KB
+
+Slack
+Die Browser-Variante funktioniert einwandfrei. Wer jedoch angepasste Desktop-Benachrichtigungen möchte, sollte sich einfach die Beta der Desktop-Version downloaden.
+
+Ich hatte noch keine Probleme mit der Desktop-Version.
+
+
+Eclipse
+Hier der Link zum neusten Package (Stand 20.08.2019).
+
+Installation: https://www.javahelps.com/2015/03/install-latest-eclipse-in-ubuntu.html
+
+Installation ab Version 2019-12: Es gibt eine eclipse-inst in der tar-Datei. Diese einfach ausführen.
+
+Workspace Mechanic: https://alfsch.github.io/eclipse-updates/workspacemechanic unter Install new Software… hinzufügen.
+
+Als Konfig nimmt man diese her: http://quad64.paf.exentra.de/eclipse/settings.json
+
+Bei Maven-Livecycle Problemen: Eclipse Preferences -> Lifecycle Mappings, Im Git Repository des RPI: rpi/lifecycle-mapping-metadata.xml
+
+
+Umlaute mit englischer Tastatur
+Hierfür verwende ich xmodmap.
+
+Ihr könnt es selber konfigurieren, aber vorher immer sicherstellen welchen Key ihr auf was bindet.
+
+Guide: https://unix.stackexchange.com/questions/49650/how-to-get-keycodes-for-xmodmap
+
+Sonst einfach die .Xmodmap Datei im home/ dir erstellen.
+
+keycode 108 = Mode_switch
+keycode 38 = a A adiaeresis Adiaeresis 
+keycode 30 = u U udiaeresis Udiaeresis
+keycode 32 = o O odiaeresis Odiaeresis
+keycode 39 = s S ssharp
+Um dies permanent zu übernehmen ist ein kleiner Workaround/Hack mit einem Python Skript nötig.
+
+https://askubuntu.com/a/514277
+
+Hier das etwas abgewandelte Skript, da sich Abhängikeiten geändert haben:
+
+.perm_xmodmap.py
+3 KB
+
+Office
+Online-Office für Outlook, PowerPoint, Word, etc.: https://www.office.com/
+
+Desktop Alternative: Evolution
+
+Hilfreiche Links für Office-Verknüpfung in Evolution: 
+
+https://www.doktorlatte.de/evolution-unter-linux-mit-exchange-365-verbinden/
+
+https://askubuntu.com/questions/202090/how-to-open-exchange-2010-shared-calendar
+
+
+Dot Files, Skripte
+Hier ist das Repo für meine Basics: https://gitea.paf.exentra.de/lro/basics

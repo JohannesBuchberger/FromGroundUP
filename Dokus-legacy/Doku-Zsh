@@ -1,0 +1,97 @@
+Warum?
+Die zsh bietet einfache Anpassung und gute Erweiterungen die das Leben in CLI einfacher gestaltet. Außerdem braucht man die zsh, wenn man cool sein möchte.
+
+Liste der Möglichkeiten:
+
+Syntax-Highlighting
+
+Themes für die Optik (Agnoster, RobbyRussell, …)
+
+Gute Autocomplete Möglichkeiten. Man kann durchtabben und der derzeitige Ordner wird makiert.
+
+
+Plugins: z. B.: Git Plugin mit sehr vielen Alias. Es wird auch der aktuelle Branch und Status angezeigt.
+
+
+Terminal
+Welches Terminal verwendet wird, ist grundlegend egal. Trotzdem werde ich Empfehlungen geben:
+
+Linux/Ubuntu: Konsole (Diese wird bei kubuntu standartmäßig mitgeliefert)
+
+Mac: iTerm 2 (Größerer Funktionsumfang als das Standart-Terminal)
+
+
+Installation
+
+zsh
+sudo apt install zsh
+
+Default Shell zu zsh ändern: chsh -s $(which zsh)
+
+
+oh my zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+
+Fonts mit Icons
+Benötigt für bestimmte Themes.
+
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
+https://github.com/powerline/fonts - You don't have permissions to view 
+Try another account
+ 
+
+SourceCode mit Font Awesome
+
+
+Themes
+https://github.com/robbyrussell/oh-my-zsh/wiki/Themes 
+
+Persönlicher Favorit meinerseits ist Powerline10K. Bietet sehr gute Anpassungsmöglichkeiten und sieht sehr gut aus.
+
+Installation von Powerlevel10K:
+
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+Danach einfach ZSH_THEME=powerlevel10k/powerlevel10k in der ~/.zshrc bearbeiten.
+
+Für erstmalige Konfiguration: p10k configure
+
+
+Plugins
+https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins - You don't have permissions to view 
+Try another account
+ 
+
+Meine Empfehlungen:
+
+git
+
+docker
+
+zsh-autosuggestions 
+# Installation: https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md
+
+colored-man-pages
+
+thefuck
+# Installation: https://github.com/nvbn/thefuck
+
+mvn
+
+zsh-syntax-highlighting
+# Installation: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
+
+zsh-z
+# Installation: https://github.com/agkozak/zsh-z
+
+Andere Guides:
+- Ubuntu: https://medium.com/wearetheledger/oh-my-zsh-made-for-cli-lovers-installation-guide-3131ca5491fb
+- Windows: https://evdokimovm.github.io/windows/zsh/shell/syntax/highlighting/ohmyzsh/hyper/terminal/2017/02/24/how-to-install-zsh-and-oh-my-zsh-on-windows-10.html
