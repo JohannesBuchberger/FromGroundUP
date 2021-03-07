@@ -10,3 +10,5 @@ copy the configs in the ./configs/ directory where you want
 ##### Use scripts
 copy the scripts in the ./scripts/ directory where you want
 
+##### Change Default-shell
+chsh -s $(which zsh)
