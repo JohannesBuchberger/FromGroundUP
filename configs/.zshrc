@@ -33,7 +33,7 @@ alias sudo='sudo '
 alias zip='gzip -9'¬
 alias random='cat /dev/random | base64'¬
 alias copy='xclip -selection clipboard'¬
-# alias mountEdison='sudo mount -t cifs -o username=jbu //fileshare/share/exentra_share ~/edison'¬
+alias vpnLog='tail -f VPN /var/log/syslog'
 
 # Sourcing of external files
 REPO=$GIT_REPO/FromGroundUP
@@ -45,3 +45,6 @@ source $REPO/scripts/postgresalias.sh
 # Plugin Configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 eval $(thefuck --alias) # eval ...  is the configuration for the "fuck" plugin
+
+# Exentra
+alias mountFileshare='sudo mount -t cifs -o username=jbu //fileshare.paf.exentra.de/share/exentra_share ~/mounts/fileshare'

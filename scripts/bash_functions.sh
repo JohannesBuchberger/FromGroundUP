@@ -15,13 +15,10 @@ function scripts() {
     echo "dkexec <containerID> (used to exec bash)"
     echo "dkrm <containerID> (stops and deletes a container)"
     echo "removeRemoteBranch <BranchToDelte>"
+    echo "switchJavaVersion"
 }
 
 # UTILITY alias functions
-..() {
-cd ../
-}
-
 cpd() {
     if [ -z $1 ];
     then
@@ -62,6 +59,11 @@ recreateDB()
     dropdb $1
     createdb $1
     cat $2 | psqlWithoutT $1
+}
+
+switchJavaVersion()
+{
+    update-java-alternatives --list
 }
 
 # POSTGRESQL alias functions
