@@ -2,7 +2,7 @@
     email = johannesbuchberger@web.de
     name = ZytlQae
 [alias]
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate 
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%Cgreen(%cr) %C(bold blue)<%an>%Creset %C(yellow)%d%Creset: %s' --abbrev-commit --decorate 
     wip = !git add -A && git commit -m WIP
     unwip = reset --mixed HEAD~1
     ap = !git add -A && git commit --ammend --no-edit

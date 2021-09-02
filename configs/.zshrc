@@ -34,6 +34,7 @@ alias zip='gzip -9'¬
 alias random='cat /dev/random | base64'¬
 alias copy='xclip -selection clipboard'¬
 alias vpnLog='tail -f VPN /var/log/syslog'
+alias sshAgent='eval `ssh-agent`'
 
 # Sourcing of external files
 REPO=$GIT_REPO/FromGroundUP

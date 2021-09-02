@@ -53,7 +53,7 @@ dkps()
 
 startUITestDocker()
 {
-    sudo docker run --rm -p 4444:4444 -p 5959:5900 --name SeleniumFirefoxDebug --shm-size=2g selenium/standalone-firefox-debug:3.141.59
+    sudo docker run --rm -p 4444:4444 -p 5959:5900 --name SeleniumFirefoxDebug --shm-size=2g selenium/standalone-firefox-debug:3.14.0
 }
 
 buyWhale()
