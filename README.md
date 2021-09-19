@@ -1,6 +1,6 @@
 # Terminalconfiguration
 
-##### Convenient install on blank os (works only un linux os's like ubuntu btw)
+##### Convenient install on blank os (works only un linux distros like ubuntu btw)
 bash start.sh
 => answer with y or n for the dependencies you want
 
