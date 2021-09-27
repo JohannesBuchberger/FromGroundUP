@@ -13,12 +13,12 @@ startPostgres()
 # $2 = postgres command specifications and parameter
 pg()
 {
-    docker run -it --rm --name $1 --network $network $postgresVersion $1 -h $containerName -U $user $2
+    docker run -it --rm --name $1 --network $network $postgresVersion $1 -h $containerName -U $user $2 $3 $4 $5 $6 $7 $8 $9
 }
 
 pgt()
 {
-    docker run -i --rm --name $1 --network $network $postgresVersion $1 -h $containerName -U $user $2
+    docker run -i --rm --name $1 --network $network $postgresVersion $1 -h $containerName -U $user $2 $3 $4 $5 $6 $7 $8 $9
 }
 
 psql()
@@ -60,7 +60,7 @@ pg_restore()
 # $2 Database to use as template
 pg_createdb_from_template()
 {
-    pg 'createdb' $1 -T $2
+    pgt 'createdb' $1 -T $2
 }
 
 # $1 database name
