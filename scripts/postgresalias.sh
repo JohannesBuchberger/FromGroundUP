@@ -23,37 +23,44 @@ pgt()
 
 psql()
 {
-    pg 'psql' $1
+    pg 'psql' $@
 }
 
 psqlWithoutT()
 {
-    pgt 'psql' $1
+    pgt 'psql' $@
 }
 
 dropdb()
 {
-    pg 'dropdb' $1
+    pg 'dropdb' $@
 }
 
 createdb()
 {
-    pg 'createdb' $1
+    pg 'createdb' $@
 }
 
 pg_dump()
 {
-    pg 'pg_dump' $1
+    pg 'pg_dump' $@
 }
 
 pg_dumpT()
 {
-    pgt 'pg_dump' $1
+    pgt 'pg_dump' $@
 }
 
 pg_restore()
 {
     pg 'pg_restore' $@
+}
+
+# $1 Database to create
+# $2 Database to use as template
+pg_createdb_from_template()
+{
+    pg 'createdb' $1 -T $2
 }
 
 # $1 database name
